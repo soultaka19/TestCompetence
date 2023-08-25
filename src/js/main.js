@@ -1,31 +1,8 @@
 // le tableau devant contenir tous les contacts
 let contacts = [];
 
-async function chargerContacts() {
-    const action = 'get_all';
-    contacts = await getContacts(action);
-        // Vous n'avez pas besoin de la variable "contacts" ici maintenant
-
-        const contactsContainer = document.getElementById("contacts");
-        contactsContainer.innerHTML = ""; // Vide le contenu actuel
-
-
-        contacts.forEach(contact => {
-            const contactElement = generateContactElements(contact);
-            contactsContainer.appendChild(contactElement);
-        });
-}
-
-async function afficherContact() {
-    await chargerContacts();
-    console.log(contacts); // Vous pouvez utiliser la variable "contacts" ici
-
-    afficherTotal(contacts.length)
-}
-
 // Appelez la fonction qui utilise chargerContacts
 afficherContact();
-
 
 // Récupération de la référence au bouton "Envoyer"
 const sendButton = document.querySelector('#sendButton');

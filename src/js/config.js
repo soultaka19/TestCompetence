@@ -11,29 +11,20 @@ async function getContacts(action){
     }
 }
 
-//fonction pour ajouter un contact
-function sendDataToServer(data) {
-    // Préparer les options de la requête
-    const requestOptions = {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(data)
-    };
+async function chargerContacts() {
+    const action = 'get_all';
+    contacts = await getContacts(action);
+        // Vous n'avez pas besoin de la variable "contacts" ici maintenant
 
-    // Effectuer la requête POST vers l'URL du serveur
-    fetch('./src/backend/ajax.php', requestOptions)
-        .then(response => response.json())
-        .then(responseData => {
-            // Traiter la réponse du serveur si nécessaire
-            console.log('Réponse du serveur :', responseData);
-        })
-        .catch(error => {
-            console.error('Erreur lors de la requête :', error);
+        const contactsContainer = document.getElementById("contacts");
+        contactsContainer.innerHTML = ""; // Vide le contenu actuel
+
+
+        contacts.forEach(contact => {
+            const contactElement = generateContactElements(contact);
+            contactsContainer.appendChild(contactElement);
         });
 }
-
 
 // Fonction pour générer les éléments DOM à partir des données de contact
 function generateContactElements(contact) {
@@ -64,6 +55,38 @@ function generateContactElements(contact) {
     return un_contact;
 }
 
+async function afficherContact() {
+    await chargerContacts();
+    console.log(contacts); // Vous pouvez utiliser la variable "contacts" ici
+
+    afficherTotal(contacts.length)
+}
+
+
+//fonction pour ajouter un contact
+function sendDataToServer(data) {
+    // Préparer les options de la requête
+    const requestOptions = {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    };
+
+    // Effectuer la requête POST vers l'URL du serveur
+    fetch('./src/backend/ajax.php', requestOptions)
+        .then(response => response.json())
+        .then(responseData => {
+            // Traiter la réponse du serveur si nécessaire
+            console.log('Réponse du serveur :', responseData);
+        })
+        .catch(error => {
+            console.error('Erreur lors de la requête :', error);
+        });
+}
+
+
 function filterContacts() {
     const filtreNom = filtreNomInput.value.toLowerCase();
     const filtrePrenom = filtrePrenomInput.value.toLowerCase();
@@ -87,10 +110,7 @@ function filterContacts() {
 
     afficherTotal(filteredContacts.length)
 }
-function afficherTotal(total) {
-    var nombreDeContact = document.getElementById("nombreDeContact");
-    nombreDeContact.innerHTML = `Nombre de Contact (s) - ${total}`;
-}
+
 // Fonction pour mettre à jour le nombre d'affichages par page
 function updateAffichageParPage() {
     const affichageParPage = parseInt(afficherParSelect.value);
@@ -114,7 +134,6 @@ function updateAffichageParPage() {
     
 
 }
-
 //fonction pour ouvrir un modal du contact
 function openContactModal(contact) {
     const modalTitle = document.querySelector('#contactModalLabel');
@@ -157,6 +176,11 @@ function openContactModal(contact) {
         modifyContactModal.show();
     });
 
+}
+//fonction pour afficher le nombre total de contact
+function afficherTotal(total) {
+    var nombreDeContact = document.getElementById("nombreDeContact");
+    nombreDeContact.innerHTML = `Nombre de Contact (s) - ${total}`;
 }
 
 
