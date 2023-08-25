@@ -141,13 +141,33 @@
                         </div>
                         <div class="modal-body">
                             <!-- Formulaire de modification -->
-                            <form>
+                            <form id="formulaireEditContact">
+                                <input type="hidden" id="modifId" name="">
                                 <!-- ... (champs de modification) -->
+                                <div class="mb-3">
+                                    <label for="modifNom" class="form-label">Nom</label>
+                                    <input type="text" class="form-control" id="modifNom">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="modifPrenom" class="form-label">Prénom</label>
+                                    <input type="text" class="form-control" id="modifPrenom">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="modifTelephone" class="form-label">Téléphone</label>
+                                    <input type="text" class="form-control" id="modifTelephone">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="modifCategorie" class="form-label">Catégorie</label>
+                                    <select class="form-select" id="modifCategorie">
+                                        <option value="1">Catégorie 01</option>
+                                        <option value="2">Catégorie 02</option>
+                                    </select>
+                                </div>
                             </form>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
-                            <button type="button" id="saveModification" class="btn btn-primary">Enregistrer</button>
+                            <button type="button" id="saveModification" class="btn btn-primary">enregistrer les modifications</button>
                         </div>
                     </div>
                 </div>

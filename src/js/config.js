@@ -126,6 +126,16 @@ function openContactModal(contact) {
         //fermer le modal de description
         contactModal.hide();
 
+        const modifyContactModalLabel = document.getElementById("modifyContactModalLabel");
+        modifyContactModalLabel.innerHTML = `<h4>Modification du contact :identifiant ${contact.id} ${contact.nom} ${contact.prenom}</h4>`;
+
+        // Remplir le formulaire de modification avec les données du contact
+        document.querySelector('#modifId').value = contact.id;
+        document.querySelector('#modifNom').value = contact.nom;
+        document.querySelector('#modifPrenom').value = contact.prenom;
+        document.querySelector('#modifTelephone').value = contact.telephone;
+        //document.querySelector('#modifyCategorie').value = contact.categorie_id; 
+
 
         // Ouvrir le modal de modification
         const modifyContactModal = new bootstrap.Modal(document.getElementById('modifyContactModal'));
