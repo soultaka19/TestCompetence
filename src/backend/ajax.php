@@ -1,5 +1,5 @@
 <?php 
-require_once('./contact.php');
+require_once('./index.php');
 
 if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     if(isset($_GET['action']) && $_GET['action'] === 'get_all'){
