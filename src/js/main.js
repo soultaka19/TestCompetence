@@ -1,7 +1,7 @@
 // le tableau devant contenir tous les contacts
 let contacts = [];
 
-// Appelez la fonction qui utilise chargerContacts
+// Afficher les contacts au dom
 afficherContact();
 
 // Récupération de la référence au bouton "Envoyer"
@@ -25,10 +25,12 @@ sendButton.addEventListener('click', () => {
 
     const contactsContainer = document.getElementById("contacts");
     contactsContainer.innerHTML = "";
-    nom.value="";
-    prenom.value = ""
-    telephone.value = "" 
-    categorie.innerHTML="" 
+
+    // Vider les champs du formulaire
+    document.querySelector('#nom').value = "";
+    document.querySelector('#prenom').value = "";
+    document.querySelector('#telephone').value = "";
+    document.querySelector('#categorie').selectedIndex = 0;
 
     afficherContact();
 });
@@ -43,8 +45,6 @@ const filtreCategorieSelect = document.querySelector('#filtreCategorie');
 filtreNomInput.addEventListener('input', filterContacts);
 filtrePrenomInput.addEventListener('input', filterContacts);
 filtreCategorieSelect.addEventListener('input', filterContacts);
-
-
 
 // Récupération de la référence au champ "Afficher par"
 const afficherParSelect = document.getElementById('afficherParSelect');
