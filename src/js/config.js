@@ -38,7 +38,8 @@ function sendDataToServer(data) {
 // Fonction pour générer les éléments DOM à partir des données de contact
 function generateContactElements(contact) {
     const un_contact = document.createElement("tr");
-
+    un_contact.style.cursor = 'pointer';
+    
     const nom = document.createElement("td");
     nom.innerText = contact.nom;
 
@@ -55,6 +56,10 @@ function generateContactElements(contact) {
     un_contact.appendChild(prenom);
     un_contact.appendChild(telephone);
     un_contact.appendChild(categorie);
+
+    un_contact.addEventListener('click', () => {
+        openContactModal(contact);
+    });
 
     return un_contact;
 }
@@ -94,6 +99,26 @@ function updateAffichageParPage() {
         contactsContainer.appendChild(contactElement);
     }
 }
+
+//fonction pour ouvrir un modal du contact
+function openContactModal(contact) {
+    const modalTitle = document.querySelector('#contactModalLabel');
+    const modalBody = document.querySelector('#contactModalBody');
+
+    // Remplir les informations du modal avec les données du contact
+    modalTitle.innerText = `Fiche descriptive d'un contact`;
+    modalBody.innerHTML = `
+        <h2>${contact.prenom} ${contact.nom}</h2>
+        <p>Téléphone : ${contact.telephone}</p>
+        <p>Catégorie : ${contact.categorie}</p>
+        <!-- Ajoutez d'autres informations du contact ici -->
+    `;
+
+    // Ouvrir le modal
+    const contactModal = new bootstrap.Modal(document.getElementById('contactModal'));
+    contactModal.show();
+}
+
 
 
 

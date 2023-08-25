@@ -49,7 +49,7 @@
                         <!-- Button trigger modal -->
                         <button type="button" class="btn btn-dark" data-bs-toggle="modal"
                             data-bs-target="#staticBackdrop">
-                           Ajouter un contact
+                            Ajouter un contact
                         </button>
 
                         <!-- Modal -->
@@ -86,8 +86,10 @@
                                         </form>
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="button"  class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
-                                        <button type="button" id="sendButton" class="btn btn-primary">Enregistrer</button>
+                                        <button type="button" class="btn btn-secondary"
+                                            data-bs-dismiss="modal">Annuler</button>
+                                        <button type="button" id="sendButton"
+                                            class="btn btn-primary">Enregistrer</button>
                                     </div>
                                 </div>
                             </div>
@@ -108,6 +110,27 @@
                     </tbody>
                 </table>
             </div>
+            <!--modal pour la description d'un contact-->
+            <!-- Modal -->
+            <div class="modal fade" id="contactModal" tabindex="-1" aria-labelledby="contactModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="contactModalLabel"></h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body" id="contactModalBody">
+                            <!-- Les informations du contact seront ajoutées ici -->
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+                            <button type="button" id="editContact" class="btn btn-primary">Modifier</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
