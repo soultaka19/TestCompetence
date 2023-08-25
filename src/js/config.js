@@ -108,7 +108,7 @@ function openContactModal(contact) {
     // Remplir les informations du modal avec les données du contact
     modalTitle.innerText = `Fiche descriptive d'un contact`;
     modalBody.innerHTML = `
-        <h2>${contact.prenom} ${contact.nom}</h2>
+        <h2>${contact.nom} ${contact.prenom}</h2>
         <p>Téléphone : ${contact.telephone}</p>
         <p>Catégorie : ${contact.categorie}</p>
         <!-- Ajoutez d'autres informations du contact ici -->
