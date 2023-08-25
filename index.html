@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./src/css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="hero ">
+        <div class="tab p-5">
+            <h1 class="text-center">Cas Pratique HTML-CSS-JS-JQUERY-PHP-SQL</h1>
+            <!--les trois champs de recherche-->
+            <div class="row">
+                <div class="col-12 col-md-4 ">
+                    <input type="text" id="filtreNom" placeholder="Filtrer par nom" class="form-control">
+                </div>
+                <div class="col-12 col-md-4">
+                    <input type="text" id="filtrePrenom" placeholder="Filtrer par prenom" class="form-control">
+                </div>
+
+                <div class="col-12 col-md-4">
+                    <Select class="form-control" id="filtreCategorie">
+                        <option value="Filtrer par categorie">Filtrer par categorie</option>
+                        <option value="categorie 01">categorie 01</option>
+                        <option value="categorie 02">categorie 02</option>
+                    </Select>
+                </div>
+            </div>
+            <!--l'affichage par le nombre selectionne et le modal-->
+            <div class="row mt-3">
+                <div class="col-md-4">
+                    <select name="" id="afficherParSelect" class="form-control">
+                        <option value="5"> Afficher par : 05</option>
+                        <option value="10"> Afficher par : 10</option>
+
+                        <option value="15"> Afficher par : 15</option>
+                        <option value="20"> Afficher par : 20</option>
+
+                    </select>
+                </div>
+                <div class="col-md-4"></div>
+                <div class="col-md-4 ">
+                    <div class="d-flex justify-content-end">
+                        <!-- Button trigger modal -->
+                        <button type="button" class="btn btn-dark" data-bs-toggle="modal"
+                            data-bs-target="#staticBackdrop">
+                           Ajouter un contact
+                        </button>
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
+                            tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="staticBackdropLabel">Formulaire de contact</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form>
+                                            <div class="mb-3">
+                                                <label for="nom" class="form-label">Nom</label>
+                                                <input type="text" class="form-control" id="nom">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="prenom" class="form-label">Prénom</label>
+                                                <input type="text" class="form-control" id="prenom">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="telephone" class="form-label">Téléphone</label>
+                                                <input type="text" class="form-control" id="telephone">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="categorie" class="form-label">Catégorie</label>
+                                                <select class="form-select" id="categorie">
+                                                    <option value="1">Catégorie 01</option>
+                                                    <option value="2">Catégorie 02</option>
+                                                </select>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button"  class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+                                        <button type="button" id="sendButton" class="btn btn-primary">Enregistrer</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="table-responsive">
+                <table class="mt-3 table">
+                    <thead>
+                        <th>Prenom</th>
+                        <th>nom</th>
+                        <th>Telephone</th>
+                        <th>Categorie</th>
+                    </thead>
+                    <tbody id="contacts">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <script src="./src/js/config.js"></script>
+    <script src="./src/js/main.js"></script>
+</body>
+
+</html>
