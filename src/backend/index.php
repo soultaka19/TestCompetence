@@ -12,7 +12,8 @@ class Contact {
 function getContacts() {
     $database = dbConnect();
     $statement = $database->query(
-        "SELECT c.id, nom, prenom, categorie_id,telephone,libelle FROM contact c join categorie cg on c.categorie_id = cg.id "
+        "SELECT c.id, nom, prenom, categorie_id,telephone,libelle FROM contact c 
+        join categorie cg on c.categorie_id = cg.id ORDER BY c.id DESC "
     );
     $contacts = [];
     while (($row = $statement->fetch())) {

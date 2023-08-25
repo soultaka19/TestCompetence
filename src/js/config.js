@@ -84,20 +84,35 @@ function filterContacts() {
         const contactElement = generateContactElements(contact);
         contactsContainer.appendChild(contactElement);
     });
-}
 
+    afficherTotal(filteredContacts.length)
+}
+function afficherTotal(total) {
+    var nombreDeContact = document.getElementById("nombreDeContact");
+    nombreDeContact.innerHTML = `Nombre de Contact (s) - ${total}`;
+}
 // Fonction pour mettre à jour le nombre d'affichages par page
 function updateAffichageParPage() {
     const affichageParPage = parseInt(afficherParSelect.value);
 
-    const contactsContainer = document.getElementById("contacts");
-    contactsContainer.innerHTML = ""; // Vide le contenu actuel
+    if (affichageParPage >= 5) {
+        const contactsContainer = document.getElementById("contacts");
+        contactsContainer.innerHTML = ""; // Vide le contenu actuel
+        let total = 0;
+        // Afficher les contacts en fonction du nombre d'affichages par page
+        for (let i = 0; i < contacts.length && i < affichageParPage; i++) {
+            const contactElement = generateContactElements(contacts[i]);
+            contactsContainer.appendChild(contactElement);
+    
+            total++;
+        }
+    
+        afficherTotal(total)   
+    } else {
 
-    // Afficher les contacts en fonction du nombre d'affichages par page
-    for (let i = 0; i < contacts.length && i < affichageParPage; i++) {
-        const contactElement = generateContactElements(contacts[i]);
-        contactsContainer.appendChild(contactElement);
     }
+    
+
 }
 
 //fonction pour ouvrir un modal du contact
