@@ -12,17 +12,14 @@ async function getContacts(action){
 }
 
 //fonction pour ajouter un contact
-function sendDataToServer(action,data) {
+function sendDataToServer(data) {
     // Préparer les options de la requête
     const requestOptions = {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify({
-            action: action,
-            data: data
-        })
+        body: JSON.stringify(data)
     };
 
     // Effectuer la requête POST vers l'URL du serveur
