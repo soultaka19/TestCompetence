@@ -117,6 +117,21 @@ function openContactModal(contact) {
     // Ouvrir le modal
     const contactModal = new bootstrap.Modal(document.getElementById('contactModal'));
     contactModal.show();
+
+    // Récupération de la référence au bouton "Modifier"
+    const editButton = document.querySelector('#editContact');
+    // Ajout d'un gestionnaire d'événement au bouton "Modifier"
+    editButton.addEventListener('click', () => {
+
+        //fermer le modal de description
+        contactModal.hide();
+
+
+        // Ouvrir le modal de modification
+        const modifyContactModal = new bootstrap.Modal(document.getElementById('modifyContactModal'));
+        modifyContactModal.show();
+    });
+
 }
 
 
