@@ -68,3 +68,4 @@ const afficherParSelect = document.getElementById('afficherParSelect');
 // Ajout d'un gestionnaire d'événement au champ "Afficher par"
 afficherParSelect.addEventListener('change', updateAffichageParPage);
 
+
